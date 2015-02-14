@@ -10,16 +10,17 @@
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.control.Button?>
 
 <Pane maxHeight="500" maxWidth="500.0" minHeight="500" minWidth="500.0" prefHeight="500.0" prefWidth="500.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.uib.gre002.info233.v2015.oblig2.app.roomAppController">
    <children>
-      <ImageView fitHeight="500.0" fitWidth="1500.0">
+      <ImageView fitHeight="500.0" fitWidth="500.0">
          <image>
-            <Image url="@uib.jpg" />
+            <Image url="@uib_01.jpg" />
          </image>
-         <viewport>
-            <Rectangle2D />
-         </viewport>
       </ImageView>
       <ImageView fitHeight="63.0" fitWidth="200.0" layoutX="145.0" layoutY="14.0" opacity="0.54">
          <image>
@@ -28,6 +29,12 @@
          <effect>
             <Reflection fraction="0.54" topOpacity="0.19" />
          </effect>
+      </ImageView>
+      <ImageView fitHeight="20" fitWidth="20" layoutX="470.0" layoutY="10.0" id="cross" onMouseClicked="#handleExitButtonEvent">
+      		<Image url="@cross.png"/>
+      </ImageView>
+      <ImageView fx:id="bldArw_1" fitHeight="50" fitWidth="50" layoutX="225.0" layoutY="320.0" id="arrow" onMouseClicked="#handleNextPageEvent">
+      		<Image url="@arrow.png"/>
       </ImageView>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="116.0" layoutY="200.0" opacity="0.88" prefHeight="101.0" prefWidth="259.0" text="UIB Rom App" textFill="#d7d7d7">
          <font>

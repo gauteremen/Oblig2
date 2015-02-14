@@ -3,23 +3,18 @@ package no.uib.gre002.info233.v2015.oblig2.app;
 import java.io.IOException;
 
 import javafx.application.Application;
-import javafx.event.EventHandler;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.ProgressBar;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.GridPane;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+
 public class UiBRomApp extends Application {
 
-	private double xOffset = 0;
-	private double yOffset = 0;
-	public static String roomAppFXML = "roomApp.fxml";
-	public static String roomApp = "roomApp";
+	public static String startScreenFXML = "startScreen.fxml";
+	public static String buildingScreenFXML = "buildingScreen.fxml";
+	public static String roomScreenFXML = "roomScreen.fxml";
+	public static String calendarTableScreen = "calendarTableScreen.fxml";
+	
 	
 	public static void main(String[] args) throws IOException {
 		
@@ -33,13 +28,17 @@ public class UiBRomApp extends Application {
 			primaryStage.initStyle(StageStyle.UNDECORATED);
 			
 			ScreenPane mainContainer = new ScreenPane();
-			mainContainer.loadScreen(UiBRomApp.roomApp, UiBRomApp.roomAppFXML);
-			mainContainer.setScreen(roomApp);
-			
+			mainContainer.loadScreen("startScreen", UiBRomApp.startScreenFXML);
+			mainContainer.loadScreen("buildingScreen", UiBRomApp.buildingScreenFXML);
+			mainContainer.loadScreen("roomScreen", UiBRomApp.roomScreenFXML);
+			mainContainer.setScreen("startScreen");
+		
 			Scene scene = new Scene(mainContainer);
 	        
 	        primaryStage.setScene(scene);
 	        primaryStage.show();
-		
+	        
+
+		 
 	}
 }

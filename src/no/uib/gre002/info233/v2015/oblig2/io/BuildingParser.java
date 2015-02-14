@@ -22,7 +22,13 @@ public class BuildingParser implements ParserInterface {
 	Matcher matcher;
 	List<UIBbuilding> uibBuildings = new ArrayList<UIBbuilding>();
 	List<UIBroom> uibRooms = new ArrayList<UIBroom>();
+	Elements buildings = null;
 
+	public BuildingParser() {
+		createBuilding(buildings);
+	}
+	
+	
 	/**
 	 * Find the buildings in the HTML document
 	 * 
@@ -54,12 +60,12 @@ public class BuildingParser implements ParserInterface {
 				UIBbuilding uib_building = new UIBbuilding(matcher.group(0));
 				uibBuildings.add(uib_building);
 			}
-		}
-		for (int i = 0; i < uibBuildings.size(); i++) {
-			System.out.println(uibBuildings.get(i).getName());
-		}
+			for (int i = 0; i < uibBuildings.size(); i++) {
+				System.out.println(uibBuildings.get(i).getName());
+		}		
 	}
-
+	}
+	
 	private void createRooms(Elements rooms) {
 
 		for (Element room : rooms) {
