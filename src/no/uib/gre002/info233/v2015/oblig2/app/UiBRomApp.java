@@ -4,7 +4,9 @@ import java.io.IOException;
 
 import no.uib.gre002.info233.v2015.oblig2.gui.ScreenPane;
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -21,6 +23,8 @@ public class UiBRomApp extends Application {
 	public static String buildingScreenFXML = "buildingScreen.fxml";
 	public static String roomScreenFXML = "roomScreen.fxml";
 	public static String calendarTableScreen = "calendarTableScreen.fxml";
+    private double xOffset = 0;
+    private double yOffset = 0;
 
 	/**
 	 * In Java 8, the main method is bypassed and the start()-method is used
@@ -51,6 +55,21 @@ public class UiBRomApp extends Application {
 				.loadScreen("buildingScreen", UiBRomApp.buildingScreenFXML);
 		mainContainer.loadScreen("roomScreen", UiBRomApp.roomScreenFXML);
 		mainContainer.setScreen("startScreen");
+
+		mainContainer.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                xOffset = event.getSceneX();
+                yOffset = event.getSceneY();
+            }
+        });
+        mainContainer.setOnMouseDragged(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                primaryStage.setX(event.getScreenX() - xOffset);
+                primaryStage.setY(event.getScreenY() - yOffset);
+            }
+        });
 
 		Scene scene = new Scene(mainContainer);
 

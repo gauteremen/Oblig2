@@ -3,11 +3,11 @@ package no.uib.gre002.info233.v2015.oblig2.gui.controllers;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import no.uib.gre002.info233.v2015.oblig2.gui.ScreenPane;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import no.uib.gre002.info233.v2015.oblig2.gui.ScreenPane;
 
 /**
  * This is the controller for the startScreen.fxml
@@ -56,8 +56,7 @@ public class StartScreenController implements Initializable, ScreenController {
 			}
             System.out.println("Clicked");
 	}
-	
-	
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
