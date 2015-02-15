@@ -61,18 +61,16 @@ public class BuildingParser {
 		for (Element building : buildings) {
 
 			pattern = Pattern
-					.compile("([\\wÅ,Ø][\\d+|\\w+][\\d+|\\w+]?\\d?\\w?\\w?)");
+					.compile("([^)]+:\\S+\\D++)");
 			matcher = pattern.matcher(building.text());
 
 			if (matcher.find()) {
 				UIBbuilding uib_building = new UIBbuilding(matcher.group(0));
 				uibBuildings.add(uib_building);
 			}
-			for (int i = 0; i < uibBuildings.size(); i++) {
-				System.out.println(uibBuildings.get(i).getName());
 			}
 		}
-	}
+	
 	
 	public List<UIBbuilding> getBuildings(){
 		return uibBuildings;
