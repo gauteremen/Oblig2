@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<!--This file executes the operations needed to build this screen. A combobox is added to handle 
+	the rooms at UIB. The operation is based on choosing a room and going to the calendarTableScreen.fxml -->
+
+
 <?import java.net.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.effect.*?>
@@ -15,11 +19,11 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.control.Button?>
 
-<Pane maxHeight="500" maxWidth="500.0" minHeight="500" minWidth="500.0" prefHeight="500.0" prefWidth="500.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.uib.gre002.info233.v2015.oblig2.app.roomAppController">
+<Pane maxHeight="500" maxWidth="500.0" minHeight="500" minWidth="500.0" prefHeight="500.0" prefWidth="500.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.uib.gre002.info233.v2015.oblig2.gui.controllers.StartScreenController">
    <children>
       <ImageView fitHeight="500.0" fitWidth="500.0">
          <image>
-            <Image url="@uib_03.jpg" />
+            <Image url="@images/uib_03.jpg" />
          </image>
          <viewport>
             <Rectangle2D />
@@ -27,7 +31,7 @@
       </ImageView>
       <ImageView fitHeight="63.0" fitWidth="200.0" layoutX="145.0" layoutY="14.0" opacity="0.54">
          <image>
-            <Image url="@uib-logo.png" />
+            <Image url="@images/uib-logo.png" />
          </image>
          <effect>
             <Reflection fraction="0.54" topOpacity="0.19" />
@@ -35,12 +39,12 @@
       </ImageView>
             <ImageView id="cross" fitHeight="20" fitWidth="20" layoutX="470.0" layoutY="10.0" onMouseClicked="#handleExitButtonEvent">
          <image>
-         		<Image url="@cross.png" />
+         		<Image url="@images/cross.png" />
          </image>
       </ImageView>
       <ImageView id="home" fitHeight="20" fitWidth="20" layoutX="10.0" layoutY="10.0" onMouseClicked="#handleHomeButtonEvent">
          <image>
-         		<Image url="@home.png" />
+         		<Image url="@images/home.png" />
          </image>
       </ImageView>
    </children>

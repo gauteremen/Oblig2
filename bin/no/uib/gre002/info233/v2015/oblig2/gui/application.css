@@ -38,3 +38,7 @@
 	-fx-opacity: 0.7;
 }
 
+.logo {
+	-fx-image: url("/images/uib_logo.jpg");
+}
+

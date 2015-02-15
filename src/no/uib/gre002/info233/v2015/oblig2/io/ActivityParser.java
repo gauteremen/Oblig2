@@ -24,10 +24,8 @@ public class ActivityParser implements ParserInterface {
 
 	/**
 	 * 
-	 * @param document
-	 *            The document containing activities
-	 * @param roomCode
-	 *            A String containing the building code for the room
+	 * @param document containing activities
+	 * @param roomCode is a String containing the building code for the room
 	 */
 	public ActivityParser(Document document, String roomCode) {
 		this.document = document;
@@ -99,8 +97,8 @@ public class ActivityParser implements ParserInterface {
 
 	/**
 	 * 
-	 * @return Returns a list of activities containing all the activities found 
-	 * in the document
+	 * @return Returns a list of activities containing all the activities found
+	 *         in the document
 	 */
 	@Override
 	public List<Activity> getActivityList() {
@@ -128,31 +126,37 @@ public class ActivityParser implements ParserInterface {
 
 		return null;
 	}
-	
+
 	/**
 	 * Private method used to locate and store the dates each Activity occurs on
-	 * @param dateRow The parent of the nodes containing the dates
+	 * 
+	 * @param dateRow
+	 *            The parent of the nodes containing the dates
 	 * @return An arraylist of strings containing the dates
 	 */
 	private List<String> parseDates(Node dateRow) {
 		ArrayList<String> datestrings = new ArrayList<String>();
 		List<Node> dates = new ArrayList<Node>(dateRow.childNodes());
 		for (int cellnumber = 1; cellnumber < dates.size(); cellnumber++) {
-			datestrings.add(dates.get(cellnumber).childNode(0)
-					.toString());
+			datestrings.add(dates.get(cellnumber).childNode(0).toString());
 		}
 
 		return datestrings;
 	}
-	
+
 	/**
 	 * Internal method for extracting an activity from a list of nodes
-	 * @param nodes The list of nodes containing the activity
-	 * @param activityNode The parent of the nodes containing the activity
-	 * @param day The day of the week this activity is taking place
+	 * 
+	 * @param nodes
+	 *            The list of nodes containing the activity
+	 * @param activityNode
+	 *            The parent of the nodes containing the activity
+	 * @param day
+	 *            The day of the week this activity is taking place
 	 * @return
 	 */
-	private Activity extractActivity(List<Node> nodes, Node activityNode, int day) {
+	private Activity extractActivity(List<Node> nodes, Node activityNode,
+			int day) {
 
 		String emneString = null;
 		String descString = null;
@@ -173,7 +177,7 @@ public class ActivityParser implements ParserInterface {
 
 			if (descString != null && timeString != null && emneString != null) {
 				Activity activity = new Activity(activityNode, emneString,
-						timeString, descString, roomCode, dates.get(day-1));
+						timeString, descString, roomCode, dates.get(day - 1));
 				System.out.println(activity);
 
 				return activity;
@@ -184,7 +188,8 @@ public class ActivityParser implements ParserInterface {
 
 	/**
 	 * 
-	 * @return returns an arraylist of strings containing the dates for the current week
+	 * @return returns an arraylist of strings containing the dates for the
+	 *         current week
 	 */
 	@Override
 	public List<String> getDateStringList() {

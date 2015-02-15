@@ -16,30 +16,37 @@ import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
 import org.jsoup.select.Elements;
 
-public class BuildingParser implements ParserInterface {
+/**
+ * This class parses though the url given, placing each regex-cleaned text into
+ * an object.
+ * 
+ * @author Gaute Gjerløw Remen
+ * @version 1.0
+ *
+ */
+
+public class BuildingParser {
 
 	Pattern pattern;
 	Matcher matcher;
 	List<UIBbuilding> uibBuildings = new ArrayList<UIBbuilding>();
 	List<UIBroom> uibRooms = new ArrayList<UIBroom>();
-	Elements buildings = null;
 
 	public BuildingParser() {
-		createBuilding(buildings);
+
 	}
-	
-	
+
 	/**
 	 * Find the buildings in the HTML document
 	 * 
 	 * @throws IOException
 	 */
 	public void getValueFromHTML(String url) throws IOException {
-		
+
 		Document doc = Jsoup.connect(url).get();
 		Elements realTimeValues = doc.select("option[value*=:]");
 
-//		createBuilding(realTimeValues);
+		// createBuilding(realTimeValues);
 		createRooms(realTimeValues);
 	}
 
@@ -62,15 +69,20 @@ public class BuildingParser implements ParserInterface {
 			}
 			for (int i = 0; i < uibBuildings.size(); i++) {
 				System.out.println(uibBuildings.get(i).getName());
-		}		
+			}
+		}
 	}
-	}
-	
+
+	/**
+	 * Cleans the building tags for special characters and unnecessary text,
+	 * using regex, and creates objects from the output.
+	 * 
+	 * @param rooms
+	 */
 	private void createRooms(Elements rooms) {
 
 		for (Element room : rooms) {
-			pattern = Pattern
-					.compile(":([^)]+)");
+			pattern = Pattern.compile(":([^)]+)");
 			matcher = pattern.matcher(room.text());
 
 			if (matcher.find()) {
@@ -81,36 +93,6 @@ public class BuildingParser implements ParserInterface {
 		for (int i = 0; i < uibRooms.size(); i++) {
 			System.out.println(uibRooms.get(i).getName());
 		}
-	}
-
-	@Override
-	public void docToLists() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public List<Node> nodesToList(Node node, Node parent, List<Node> nodeList) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Node> getNodeList() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Activity> getActivityList() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<String> getDateStringList() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }
