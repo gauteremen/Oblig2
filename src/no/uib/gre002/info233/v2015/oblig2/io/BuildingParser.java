@@ -32,8 +32,8 @@ public class BuildingParser {
 	List<UIBbuilding> uibBuildings = new ArrayList<UIBbuilding>();
 	List<UIBroom> uibRooms = new ArrayList<UIBroom>();
 
-	public BuildingParser() {
-
+	public BuildingParser(String url) throws IOException {
+		createBuilding(getValueFromHTML(url));
 	}
 
 	/**
@@ -41,13 +41,14 @@ public class BuildingParser {
 	 * 
 	 * @throws IOException
 	 */
-	public void getValueFromHTML(String url) throws IOException {
+	public Elements getValueFromHTML(String url) throws IOException {
 
 		Document doc = Jsoup.connect(url).get();
 		Elements realTimeValues = doc.select("option[value*=:]");
 
+		return realTimeValues;
 		// createBuilding(realTimeValues);
-		createRooms(realTimeValues);
+		//createRooms(realTimeValues);
 	}
 
 	/**
@@ -71,6 +72,10 @@ public class BuildingParser {
 				System.out.println(uibBuildings.get(i).getName());
 			}
 		}
+	}
+	
+	public List<UIBbuilding> getBuildings(){
+		return uibBuildings;
 	}
 
 	/**

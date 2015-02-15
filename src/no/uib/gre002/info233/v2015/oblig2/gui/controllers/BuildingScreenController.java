@@ -1,14 +1,17 @@
 package no.uib.gre002.info233.v2015.oblig2.gui.controllers;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import no.uib.gre002.info233.v2015.oblig2.gui.ScreenPane;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import no.uib.gre002.info233.v2015.oblig2.gui.ScreenPane;
+import no.uib.gre002.info233.v2015.oblig2.io.BuildingParser;
+import no.uib.gre002.info233.v2015.oblig2.models.UIBbuilding;
 
 /**
  * This is the controller for the buildinScreen.fxml
@@ -75,15 +78,16 @@ public class BuildingScreenController implements Initializable,
 	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		combo123.getItems().clear();
-		combo123.getItems().addAll("A55: Bjørn Trumpys Hus(Fysikkbygget)",
-				"A66: Allégaten 66", "A70: Allégaten 70,",
-				"AHH: Armauer Hansens Hus", "BK: Barneklinkken",
-				"BB: BB-Bygget", "BIO: Biologen", "BC: Bjørn Christiansen Hus",
-				"BV: Brakkerigg Vinjesgate", "M1: C.G. Sundts Hus",
-				"CLG: Carl L. Godskes Hus",
-				"C13: Christies gate 13 (Vektergården)",
-				"C17: Christies gate 17", "DR: Dragefjellet");
+
+		try {
+			BuildingParser buildingParser = new BuildingParser("http://rom.app.uib.no/ukesoversikt/?entry=byggrom");
+
+			for (UIBbuilding building : buildingParser.getBuildings()) {
+				combo123.getItems().add(building.getName());
+			}
+		} catch (IOException e) {
+			//TODO Write catch clause
+		}
 	}
 
 }
