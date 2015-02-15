@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import no.uib.gre002.info233.v2015.oblig2.models.UIBbuilding;
 import no.uib.gre002.info233.v2015.oblig2.models.UIBroom;
 
 import org.jsoup.Jsoup;
@@ -14,24 +13,14 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-/**
- * This class parses though the url given, placing each regex-cleaned text into
- * an object.
- * 
- * @author Gaute Gjerløw Remen
- * @version 1.0
- *
- */
-
-public class BuildingParser {
+public class RoomParser {
 
 	Pattern pattern;
 	Matcher matcher;
-	List<UIBbuilding> uibBuildings = new ArrayList<UIBbuilding>();
 	List<UIBroom> uibRooms = new ArrayList<UIBroom>();
 
-	public BuildingParser(String url) throws IOException {
-		createBuilding(getValueFromHTML(url));
+	public RoomParser(String url) throws IOException {
+		createRooms(getValueFromHTML(url));
 	}
 
 	/**
@@ -45,33 +34,33 @@ public class BuildingParser {
 		Elements realTimeValues = doc.select("option[value*=:]");
 
 		return realTimeValues;
-		// createBuilding(realTimeValues);
-		//createRooms(realTimeValues);
+	}
+
+	public List<UIBroom> getBuildings(){
+		return uibRooms;
 	}
 
 	/**
 	 * Cleans the building tags for special characters and unnecessary text,
 	 * using regex, and creates objects from the output.
 	 * 
-	 * @param buildings
+	 * @param rooms
 	 */
-	private void createBuilding(Elements buildings) {
-		for (Element building : buildings) {
+	private void createRooms(Elements rooms) {
 
-			pattern = Pattern
-					.compile("([^)]+:\\S+\\D++)");
-			matcher = pattern.matcher(building.text());
+		for (Element room : rooms) {
+			pattern = Pattern.compile(":([^)]+)");
+			matcher = pattern.matcher(room.text());
 
 			if (matcher.find()) {
-				UIBbuilding uib_building = new UIBbuilding(matcher.group(0));
-				uibBuildings.add(uib_building);
-			}
+				UIBroom uib_room = new UIBroom(matcher.group(1));
+				uibRooms.add(uib_room);
 			}
 		}
-	
-	
-	public List<UIBbuilding> getBuildings(){
-		return uibBuildings;
+		for (int i = 0; i < uibRooms.size(); i++) {
+			System.out.println(uibRooms.get(i).getName());
+		}
 	}
 
 }
+

@@ -10,16 +10,16 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import no.uib.gre002.info233.v2015.oblig2.gui.ScreenPane;
-import no.uib.gre002.info233.v2015.oblig2.io.BuildingParser;
-import no.uib.gre002.info233.v2015.oblig2.models.UIBbuilding;
+import no.uib.gre002.info233.v2015.oblig2.io.RoomParser;
+import no.uib.gre002.info233.v2015.oblig2.models.UIBroom;
 
 /**
- * This is the controller for the buildinScreen.fxml
+ * This is the controller for the roomScreen.fxml
  * 
  * @author Gaute Gjerløw Remen
  * @version 1.0
  */
-public class BuildingScreenController implements Initializable,
+public class RoomScreenController implements Initializable,
 		ScreenController {
 
 	private ScreenPane myScreenPane;
@@ -28,8 +28,8 @@ public class BuildingScreenController implements Initializable,
 	 * Initialize the combobox and the rmArw_1 fx:id in FXML
 	 */
 	@FXML
-	public ComboBox<String> buildingCombo;
-	public ImageView rmArw_1;
+	public ComboBox<String> roomCombo;
+	public ImageView clndrv_1;
 
 	/**
 	 * Handles the FXML onMouseClicked on the cross symbol
@@ -59,8 +59,8 @@ public class BuildingScreenController implements Initializable,
 	 */
 	@FXML
 	private void handleNextPageEvent(MouseEvent e) {
-		if ((ImageView) e.getSource() == rmArw_1) {
-			myScreenPane.setScreen("roomScreen");
+		if ((ImageView) e.getSource() == clndrv_1) {
+			myScreenPane.setScreen("calendarTableScreen");
 		}
 		System.out.println("Clicked");
 	}
@@ -78,12 +78,12 @@ public class BuildingScreenController implements Initializable,
 	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		buildingCombo.getItems().clear();
+		roomCombo.getItems().clear();
 		try {
-			BuildingParser buildingParser = new BuildingParser("http://rom.app.uib.no/ukesoversikt/?entry=byggrom");
+			RoomParser roomParser = new RoomParser("http://rom.app.uib.no/ukesoversikt/?entry=byggrom&building=BIO%3A");
 
-			for (UIBbuilding building : buildingParser.getBuildings()) {
-				buildingCombo.getItems().add(building.getName());
+			for (UIBroom room : roomParser.getBuildings()) {
+				roomCombo.getItems().add(room.getName());
 			}
 		} catch (IOException e) {
 			//TODO Write catch clause

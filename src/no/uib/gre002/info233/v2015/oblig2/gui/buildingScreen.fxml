@@ -46,7 +46,7 @@
          		<Image url="@images/home.png" />
          </image>
       </ImageView>
-      <ComboBox fx:id="combo123" layoutX="100.0" layoutY="150.0" prefHeight="27.0" prefWidth="300.0" promptText="Vennligst velg bygg:">
+      <ComboBox fx:id="buildingCombo" layoutX="100.0" layoutY="150.0" prefHeight="27.0" prefWidth="300.0" promptText="Vennligst velg bygg:">
       		<items>
       		<FXCollections fx:factory="observableArrayList">
       			<String fx:value="test"/>
