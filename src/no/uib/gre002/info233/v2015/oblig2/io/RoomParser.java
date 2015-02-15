@@ -36,7 +36,7 @@ public class RoomParser {
 		return realTimeValues;
 	}
 
-	public List<UIBroom> getBuildings(){
+	public List<UIBroom> getBuildings() {
 		return uibRooms;
 	}
 
@@ -57,10 +57,5 @@ public class RoomParser {
 				uibRooms.add(uib_room);
 			}
 		}
-		for (int i = 0; i < uibRooms.size(); i++) {
-			System.out.println(uibRooms.get(i).getName());
-		}
 	}
-
 }
-

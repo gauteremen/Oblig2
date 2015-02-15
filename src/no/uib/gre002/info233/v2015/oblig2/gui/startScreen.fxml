@@ -37,7 +37,7 @@
       <ImageView fitHeight="20" fitWidth="20" layoutX="470.0" layoutY="10.0" id="cross" onMouseClicked="#handleExitButtonEvent">
       		<Image url="@images/cross.png"/>
       </ImageView>
-      <ImageView fx:id="bldArw_1" fitHeight="50" fitWidth="50" layoutX="225.0" layoutY="320.0" id="arrow" onMouseClicked="#handleNextPageEvent">
+      <ImageView fx:id="bldArw_1" fitHeight="50" fitWidth="50" layoutX="225.0" layoutY="300" id="arrow" onMouseClicked="#handleNextPageEvent">
       		<Image url="@images/arrow.png"/>
       </ImageView>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="116.0" layoutY="200.0" opacity="0.88" prefHeight="101.0" prefWidth="259.0" text="UIB Rom App" textFill="#d7d7d7">

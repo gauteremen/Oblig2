@@ -22,7 +22,7 @@ public class UiBRomApp extends Application {
 	public static String startScreenFXML = "startScreen.fxml";
 	public static String buildingScreenFXML = "buildingScreen.fxml";
 	public static String roomScreenFXML = "roomScreen.fxml";
-	public static String calendarTableScreen = "calendarTableScreen.fxml";
+	public static String calendarTableScreenFXML = "calendarTableScreen.fxml";
     private double xOffset = 0;
     private double yOffset = 0;
 
@@ -35,16 +35,12 @@ public class UiBRomApp extends Application {
 	 * @throws IOException
 	 */
 	public static void main(String[] args) throws IOException {
-
-		// BuildingParser parser = new BuildingParser();
-		// TODO change name of the method, or split into two classes.
-		// parser.getValueFromHTML("http://rom.app.uib.no/ukesoversikt/?entry=byggrom&building=SS%3A");
 		launch(args);
-
 	}
 
 	/**
 	 * The main method of a JavaFX-app in Java 8.
+	 * Included a eventhandler for dragging the window. This was difficult in FXML.
 	 */
 	public void start(final Stage primaryStage) throws Exception {
 		primaryStage.initStyle(StageStyle.UNDECORATED);
@@ -54,6 +50,7 @@ public class UiBRomApp extends Application {
 		mainContainer
 				.loadScreen("buildingScreen", UiBRomApp.buildingScreenFXML);
 		mainContainer.loadScreen("roomScreen", UiBRomApp.roomScreenFXML);
+		mainContainer.loadScreen("calendarTableScreen", UiBRomApp.calendarTableScreenFXML);
 		mainContainer.setScreen("startScreen");
 
 		mainContainer.setOnMousePressed(new EventHandler<MouseEvent>() {

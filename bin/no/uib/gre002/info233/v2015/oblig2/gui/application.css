@@ -42,3 +42,6 @@
 	-fx-image: url("/images/uib_logo.jpg");
 }
 
+.table-view .column-header-background .label {  
+ -fx-font-size: 9pt;  
+}  
