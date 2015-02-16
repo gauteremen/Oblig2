@@ -8,9 +8,17 @@ import javafx.fxml.Initializable;
 import javafx.scene.input.MouseEvent;
 import no.uib.gre002.info233.v2015.oblig2.gui.ScreenPane;
 
+/**
+ * This is the controller for the calendarTableScreen.fxml
+ * 
+ * @author Gaute Gjerløw Remen & Anders Eide
+ *
+ */
 public class CalendarScreenController implements Initializable, ScreenController {
 
 private ScreenPane myScreenPane;
+private String building;
+private String room;
 
 /**
  * Handles the FXML onMouseClicked on the cross symbol
@@ -46,6 +54,13 @@ public void initialize(URL arg0, ResourceBundle arg1) {
 
 	
 }
+
+public void setLocationInfo(String building, String room){
+	this.building = building;
+	this.room = room;
+}
+
+
 
 
 }

@@ -17,7 +17,7 @@ import no.uib.gre002.info233.v2015.oblig2.models.UIBroom;
 /**
  * This is the controller for the roomScreen.fxml
  * 
- * @author Gaute Gjerløw Remen
+ * @author Gaute Gjerløw Remen & Anders Eide
  * @version 1.0
  */
 public class RoomScreenController implements Initializable,
@@ -25,6 +25,7 @@ public class RoomScreenController implements Initializable,
 
 	private ScreenPane myScreenPane;
 	private String buildingCode;
+	private String roomCode;
 	
 
 	/**
@@ -63,9 +64,27 @@ public class RoomScreenController implements Initializable,
 	@FXML
 	private void handleNextPageEvent(MouseEvent e) {
 		if ((ImageView) e.getSource() == clndrv_1) {
+
+			//TODO Fix rooms so that room names are kept in the list
+			roomCode = roomCombo.getSelectionModel().getSelectedItem();
+			System.out.println(buildingCode + " - " + roomCode);
+			
+			
+			transferLocationInfo(buildingCode, roomCode);
+
 			myScreenPane.setScreen("calendarTableScreen");
 		}
 		System.out.println("Clicked");
+	}
+	
+	/**
+	 * Transfers information about the room and building to the activity display table
+	 * @param building the building selected by the user
+	 * @param room the room selected by the user
+	 */
+	private void transferLocationInfo(String building, String room){
+		CalendarScreenController calendarController = (CalendarScreenController) myScreenPane.getControllers().get("calendarTableScreen");
+		calendarController.setLocationInfo(building, room);
 	}
 
 	/**
@@ -95,6 +114,7 @@ public class RoomScreenController implements Initializable,
 			e.printStackTrace();
 		}
 	}
+	
 	
 	/**
 	 * Used to store which building the user has selected

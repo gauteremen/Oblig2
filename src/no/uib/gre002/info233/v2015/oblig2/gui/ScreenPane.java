@@ -75,7 +75,6 @@ public class ScreenPane extends StackPane {
 					.getController());
 			myScreenController.setScreenPane(this);
 			addScreen(name, loadScreen);
-
 			controllers.put(name, myScreenController);
 			return true;
 		} catch (Exception e) {

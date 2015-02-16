@@ -16,7 +16,7 @@ import no.uib.gre002.info233.v2015.oblig2.models.UIBbuilding;
 /**
  * This is the controller for the buildinScreen.fxml
  * 
- * @author Gaute Gjerløw Remen
+ * @author Gaute Gjerløw Remen & Anders Eide
  * @version 1.0
  */
 public class BuildingScreenController implements Initializable,
@@ -64,9 +64,8 @@ public class BuildingScreenController implements Initializable,
 			buildingCode = buildingCombo.getSelectionModel().getSelectedItem();
 			System.out.println(buildingCode);
 			
-			//Please don't hate me for this
-			ScreenController roomController = myScreenPane.getControllers().get("roomScreen");
-			transferBuildingCode(roomController, buildingCode);
+			
+			transferBuildingCode(buildingCode);
 			
 			myScreenPane.setScreen("roomScreen");
 		}
@@ -74,9 +73,14 @@ public class BuildingScreenController implements Initializable,
 		System.out.println("Clicked");
 	}
 	
-	private void transferBuildingCode(ScreenController controller, String code){
-		RoomScreenController roomController = (RoomScreenController) controller;
-		roomController.setBuildingCode(code);
+	/**
+	 * Method used to transfer which building the RoomController should show rooms from
+	 * @param controller The controller that handles displaying rooms
+	 * @param buildingInfo the name and code of the building
+	 */
+	private void transferBuildingCode(String buildingInfo){
+		RoomScreenController roomController = (RoomScreenController) myScreenPane.getControllers().get("roomScreen");
+		roomController.setBuildingCode(buildingInfo);
 		roomController.populateComboBox();
 	}
 
