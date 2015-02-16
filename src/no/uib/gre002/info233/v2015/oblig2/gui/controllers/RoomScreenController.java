@@ -10,6 +10,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import no.uib.gre002.info233.v2015.oblig2.gui.ScreenPane;
+import no.uib.gre002.info233.v2015.oblig2.io.ParserController;
 import no.uib.gre002.info233.v2015.oblig2.io.RoomParser;
 import no.uib.gre002.info233.v2015.oblig2.models.UIBroom;
 
@@ -23,6 +24,8 @@ public class RoomScreenController implements Initializable,
 		ScreenController {
 
 	private ScreenPane myScreenPane;
+	private String buildingCode;
+	
 
 	/**
 	 * Initialize the combobox and the rmArw_1 fx:id in FXML
@@ -80,7 +83,7 @@ public class RoomScreenController implements Initializable,
 	public void initialize(URL location, ResourceBundle resources) {
 		roomCombo.getItems().clear();
 		try {
-			RoomParser roomParser = new RoomParser("http://rom.app.uib.no/ukesoversikt/?entry=byggrom&building=BIO%3A");
+			RoomParser roomParser = new RoomParser(ParserController.getBuildingURL(buildingCode));
 
 			for (UIBroom room : roomParser.getBuildings()) {
 				roomCombo.getItems().add(room.getName());
@@ -88,6 +91,14 @@ public class RoomScreenController implements Initializable,
 		} catch (IOException e) {
 			//TODO Write catch clause
 		}
+	}
+	
+	/**
+	 * Used to store which building the user has selected
+	 * @param buildingCode the code of the building (i.e. SV for Laurits Meltzers)
+	 */
+	public void setBuildingCode(String buildingCode){
+		this.buildingCode = buildingCode;
 	}
 
 }
