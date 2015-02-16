@@ -92,7 +92,7 @@ public class RoomScreenController implements Initializable,
 				roomCombo.getItems().add(room.getName());
 			}
 		} catch (IOException e) {
-			//TODO Write catch clause
+			e.printStackTrace();
 		}
 	}
 	

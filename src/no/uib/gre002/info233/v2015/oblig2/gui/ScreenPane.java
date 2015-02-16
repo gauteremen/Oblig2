@@ -1,6 +1,7 @@
 package no.uib.gre002.info233.v2015.oblig2.gui;
 
 import java.util.HashMap;
+import java.util.List;
 
 import no.uib.gre002.info233.v2015.oblig2.gui.controllers.ScreenController;
 import javafx.animation.KeyFrame;
@@ -26,6 +27,7 @@ import javafx.util.Duration;
 public class ScreenPane extends StackPane {
 
 	private HashMap<String, Node> screens = new HashMap<>();
+	private HashMap<String, ScreenController> controllers = new HashMap<>();
 
 	public ScreenPane() {
 		super();
@@ -73,11 +75,22 @@ public class ScreenPane extends StackPane {
 					.getController());
 			myScreenController.setScreenPane(this);
 			addScreen(name, loadScreen);
+
+			controllers.put(name, myScreenController);
 			return true;
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 			return false;
 		}
+	}
+
+	/**
+	 * 
+	 * @return A map of the screencontrollers with the name of each screen being
+	 *         the key to its controller
+	 */
+	public HashMap<String, ScreenController> getControllers() {
+		return controllers;
 	}
 
 	/**
