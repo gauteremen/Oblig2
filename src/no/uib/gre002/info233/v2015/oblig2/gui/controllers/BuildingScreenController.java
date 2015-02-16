@@ -23,6 +23,7 @@ public class BuildingScreenController implements Initializable,
 		ScreenController {
 
 	private ScreenPane myScreenPane;
+	private String buildingCode;
 
 	/**
 	 * Initialize the combobox and the rmArw_1 fx:id in FXML
@@ -59,9 +60,12 @@ public class BuildingScreenController implements Initializable,
 	 */
 	@FXML
 	private void handleNextPageEvent(MouseEvent e) {
-		if ((ImageView) e.getSource() == rmArw_1) {
+		if ((ImageView) e.getSource() == rmArw_1){
+			buildingCode = buildingCombo.getSelectionModel().getSelectedItem();
+			System.out.println(buildingCode);
 			myScreenPane.setScreen("roomScreen");
 		}
+
 		System.out.println("Clicked");
 	}
 
@@ -88,6 +92,9 @@ public class BuildingScreenController implements Initializable,
 		} catch (IOException e) {
 			//TODO Write catch clause
 		}
+		
+		}
+		
 	}
 
-}
+
