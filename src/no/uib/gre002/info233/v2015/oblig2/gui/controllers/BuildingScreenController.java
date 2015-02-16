@@ -63,6 +63,7 @@ public class BuildingScreenController implements Initializable,
 		if ((ImageView) e.getSource() == rmArw_1){
 			buildingCode = buildingCombo.getSelectionModel().getSelectedItem();
 			System.out.println(buildingCode);
+			RoomScreenController.populateComboBox();
 			myScreenPane.setScreen("roomScreen");
 		}
 

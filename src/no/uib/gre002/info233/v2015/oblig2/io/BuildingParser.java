@@ -46,7 +46,7 @@ public class BuildingParser {
 
 		return realTimeValues;
 		// createBuilding(realTimeValues);
-		//createRooms(realTimeValues);
+		// createRooms(realTimeValues);
 	}
 
 	/**
@@ -58,19 +58,18 @@ public class BuildingParser {
 	private void createBuilding(Elements buildings) {
 		for (Element building : buildings) {
 
-			pattern = Pattern
-					.compile("([^)]+:\\S+\\D++)");
+			pattern = Pattern.compile("([^)]+:\\S+\\D++)");
 			matcher = pattern.matcher(building.text());
 
 			if (matcher.find()) {
 				UIBbuilding uib_building = new UIBbuilding(matcher.group(0));
 				uibBuildings.add(uib_building);
 			}
-			}
+
 		}
-	
-	
-	public List<UIBbuilding> getBuildings(){
+	}
+
+	public List<UIBbuilding> getBuildings() {
 		return uibBuildings;
 	}
 
