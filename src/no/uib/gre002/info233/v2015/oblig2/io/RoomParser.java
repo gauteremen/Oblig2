@@ -13,6 +13,11 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+/**
+ * Class used to retrieve a list of rooms from a url
+ * @author Gaute Gjerløw Remen
+ *
+ */
 public class RoomParser {
 
 	Pattern pattern;

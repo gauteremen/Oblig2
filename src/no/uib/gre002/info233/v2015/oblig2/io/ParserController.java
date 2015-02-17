@@ -4,15 +4,23 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
-
+/**
+ * Utility class for constructing URLs
+ * @author Anders Eide
+ *
+ */
 public class ParserController {
 	
-	
-	public static String getBuildingURL(String buildingCode){
+	/**
+	 * Method for getting the complete URL for a building from its name and code
+	 * @param buildingName The name and code of the building
+	 * @return The full URL of the building
+	 */
+	public static String getBuildingURL(String buildingName){
 		
 		Pattern pattern = Pattern
 				.compile("(\\w[^)]+:)");
-		Matcher matcher = pattern.matcher(buildingCode);
+		Matcher matcher = pattern.matcher(buildingName);
 		
 		if(matcher.find()) {
 			System.out.println(matcher.group(0));
