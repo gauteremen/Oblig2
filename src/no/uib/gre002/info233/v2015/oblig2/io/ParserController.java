@@ -15,7 +15,9 @@ public class ParserController {
 		Matcher matcher = pattern.matcher(buildingCode);
 		
 		if(matcher.find()) {
+			System.out.println(matcher.group(0));
 			return "http://rom.app.uib.no/ukesoversikt/?entry=byggrom&building=" + matcher.group(0);
+
 		}
 		return null;
 	}

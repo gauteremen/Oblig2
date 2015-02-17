@@ -9,6 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import no.uib.gre002.info233.v2015.oblig2.app.UiBRomApp;
 import no.uib.gre002.info233.v2015.oblig2.gui.ScreenPane;
 import no.uib.gre002.info233.v2015.oblig2.io.BuildingParser;
 import no.uib.gre002.info233.v2015.oblig2.models.UIBbuilding;
@@ -63,7 +64,7 @@ public class BuildingScreenController implements Initializable,
 		if ((ImageView) e.getSource() == rmArw_1){
 			buildingCode = buildingCombo.getSelectionModel().getSelectedItem();
 			System.out.println(buildingCode);
-			RoomScreenController.populateComboBox();
+			myScreenPane.loadScreen("roomScreen", UiBRomApp.roomScreenFXML);
 			myScreenPane.setScreen("roomScreen");
 		}
 
@@ -97,5 +98,6 @@ public class BuildingScreenController implements Initializable,
 		}
 		
 	}
+	
 
 
