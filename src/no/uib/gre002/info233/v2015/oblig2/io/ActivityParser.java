@@ -1,12 +1,10 @@
 package no.uib.gre002.info233.v2015.oblig2.io;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import no.uib.gre002.info233.v2015.oblig2.models.Activity;
 
-import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
@@ -29,20 +27,10 @@ public class ActivityParser implements ParserInterface {
 	 * @param document containing activities
 	 * @param roomCode is a String containing the building code for the room
 	 */
-	public ActivityParser(String url, String roomCode) {
-		try{
-		this.document = getDocumentFromURL(url);
+	public ActivityParser(Document document, String roomCode) {
+		this.document = document;
 		this.roomCode = roomCode;
 		nodes = new ArrayList<Node>();
-		} catch (IOException e){
-			e.printStackTrace();
-		}
-		
-		docToLists();
-	}
-	
-	public Document getDocumentFromURL(String url) throws IOException {
-		return Jsoup.connect(url).get();
 	}
 
 	/**
@@ -136,7 +124,7 @@ public class ActivityParser implements ParserInterface {
 			}
 		}
 
-		return activityList;
+		return null;
 	}
 
 	/**
