@@ -63,10 +63,37 @@ public class RoomScreenController implements Initializable,
 	@FXML
 	private void handleNextPageEvent(MouseEvent e) {
 		if ((ImageView) e.getSource() == clndrv_1) {
+<<<<<<< Updated upstream
+=======
+
+			//TODO Fix rooms so that room names are kept in the list
+			roomCode = roomCombo.getSelectionModel().getSelectedItem();
+			System.out.println(buildingCode + " - " + roomCode);
+			
+	
+			transferLocationInfo(buildingCode, roomCode);
+			
+			
+>>>>>>> Stashed changes
 			myScreenPane.setScreen("calendarTableScreen");
 		}
 		System.out.println("Clicked");
 	}
+<<<<<<< Updated upstream
+=======
+	
+	/**
+	 * Transfers information about the room and building to the activity display table
+	 * @param building the building selected by the user
+	 * @param room the room selected by the user
+	 */
+	private void transferLocationInfo(String building, String room){
+		CalendarScreenController calendarController = (CalendarScreenController) myScreenPane.getControllers().get("calendarTableScreen");
+		calendarController.setLocationInfo(building, room);
+		calendarController.fetchActivityList();
+		
+	}
+>>>>>>> Stashed changes
 
 	/**
 	 * Sets the new screen
