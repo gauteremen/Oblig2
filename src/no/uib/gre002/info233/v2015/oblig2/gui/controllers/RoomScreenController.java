@@ -81,16 +81,19 @@ public class RoomScreenController implements Initializable,
 	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-//		try {
-//			RoomParser roomParser = new RoomParser(ParserController.getBuildingURL(buildingCode));
-//
-//			for (UIBroom room : roomParser.getBuildings()) {
-//				roomCombo.getItems().add(room.getName());
-//			}
-//		} catch (IOException e) {
-//			//TODO Write catch clause
-//		}
-//		
+		roomCombo.getItems().clear();
+	}
+
+	public void populateComboBox() {
+		try {
+			RoomParser roomParser = new RoomParser(ParserController.getBuildingURL(buildingCode));
+
+			for (UIBroom room : roomParser.getBuildings()) {
+				roomCombo.getItems().add(room.getName());
+			}
+		} catch (IOException e) {
+			//TODO Write catch clause
+		}
 	}
 	
 	/**

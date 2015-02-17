@@ -19,7 +19,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.collections.*?>
 <?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.TableColumn?>
 
 <Pane maxHeight="500" maxWidth="500.0" minHeight="500" minWidth="500" prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.uib.gre002.info233.v2015.oblig2.gui.controllers.CalendarScreenController">
    <children>
@@ -41,14 +40,14 @@
          		<Image url="@images/home.png" />
          </image>
       </ImageView>
-      <TableView fx:id="calendarPopulator" layoutX="13.0" layoutY="125.0" prefHeight="282.0" prefWidth="474.0">
+      <TableView layoutX="13.0" layoutY="125.0" prefHeight="282.0" prefWidth="474.0">
         <columns>
-            <TableColumn prefWidth="43.0" text="Tid" />
-            <TableColumn fx:id="mandagColumn" prefWidth="61.0" text="Mandag" />
-            <TableColumn fx:id="tirsdagColumn" prefWidth="61.0" text="Tirsdag" />
-            <TableColumn fx:id="onsdagColumn" prefWidth="61.0" text="Onsdag" />
-            <TableColumn fx:id="torsdagColumn" prefWidth="61.0" text="Torsdag" />
-            <TableColumn fx:id="fredagColumn" prefWidth="61.0" text="Fredag" />
+            <TableColumn id="column" prefWidth="43.0" text="Tid" />
+            <TableColumn prefWidth="61.0" text="Mandag" />
+            <TableColumn prefWidth="61.0" text="Tirsdag" />
+            <TableColumn prefWidth="61.0" text="Onsdag" />
+            <TableColumn prefWidth="61.0" text="Torsdag" />
+            <TableColumn prefWidth="61.0" text="Fredag" />
             <TableColumn prefWidth="61.0" text="Lørdag" />
             <TableColumn prefWidth="64.0" text="Søndag" />
         </columns>

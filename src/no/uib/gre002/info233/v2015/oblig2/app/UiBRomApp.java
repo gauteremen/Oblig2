@@ -49,7 +49,7 @@ public class UiBRomApp extends Application {
 		mainContainer.loadScreen("startScreen", UiBRomApp.startScreenFXML);
 		mainContainer
 				.loadScreen("buildingScreen", UiBRomApp.buildingScreenFXML);
-	//	mainContainer.loadScreen("roomScreen", UiBRomApp.roomScreenFXML);
+		mainContainer.loadScreen("roomScreen", UiBRomApp.roomScreenFXML);
 		mainContainer.loadScreen("calendarTableScreen", UiBRomApp.calendarTableScreenFXML);
 		mainContainer.setScreen("startScreen");
 
