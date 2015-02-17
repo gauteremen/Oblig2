@@ -1,9 +1,7 @@
 package no.uib.gre002.info233.v2015.oblig2.gui;
 
 import java.util.HashMap;
-import java.util.List;
 
-import no.uib.gre002.info233.v2015.oblig2.gui.controllers.ScreenController;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -15,6 +13,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
+import no.uib.gre002.info233.v2015.oblig2.gui.controllers.ScreenController;
 
 /**
  * This class set the new screen for the application. It handles the loading of

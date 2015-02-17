@@ -68,8 +68,7 @@ public class RoomScreenController implements Initializable,
 			//TODO Fix rooms so that room names are kept in the list
 			roomCode = roomCombo.getSelectionModel().getSelectedItem();
 			System.out.println(buildingCode + " - " + roomCode);
-			
-			
+				
 			transferLocationInfo(buildingCode, roomCode);
 
 			myScreenPane.setScreen("calendarTableScreen");
@@ -100,6 +99,7 @@ public class RoomScreenController implements Initializable,
 	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+
 		roomCombo.getItems().clear();
 	}
 
@@ -113,6 +113,18 @@ public class RoomScreenController implements Initializable,
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+
+//		try {
+//			RoomParser roomParser = new RoomParser(ParserController.getBuildingURL(buildingCode));
+//
+//			for (UIBroom room : roomParser.getBuildings()) {
+//				roomCombo.getItems().add(room.getName());
+//			}
+//		} catch (IOException e) {
+//			//TODO Write catch clause
+//		}
+//		
+
 	}
 	
 	
